@@ -7,7 +7,7 @@ from inspect_ai._util.thread import is_main_thread
 
 logger = getLogger(__name__)
 
-DisplayType = Literal["full", "conversation", "rich", "plain", "none"]
+DisplayType = Literal["full", "conversation", "rich", "plain", "none", "web", "server"]
 """Console display type."""
 
 
@@ -28,7 +28,7 @@ def init_display_type(display: str | None = None) -> DisplayType:
         display = "plain"
 
     match display:
-        case "full" | "conversation" | "rich" | "plain" | "none":
+        case "full" | "conversation" | "rich" | "plain" | "none" | "web" | "server":
             _display_type = display
         case _:
             logger.warning(

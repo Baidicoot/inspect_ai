@@ -8,6 +8,8 @@ from inspect_ai.util._display import display_type
 from ..plain.display import PlainDisplay
 from ..rich.display import RichDisplay
 from ..textual.display import TextualDisplay
+from ..web.display import WebDisplay
+from ..server.display import ServerDisplay
 from .display import Display, TaskScreen
 
 _active_display: Display | None = None
@@ -24,6 +26,10 @@ def display() -> Display:
             and not rich.get_console().is_jupyter
         ):
             _active_display = TextualDisplay()
+        elif display_type() == "web":
+            _active_display = WebDisplay()
+        elif display_type() == "server":
+            _active_display = ServerDisplay()
         else:
             _active_display = RichDisplay()
 
