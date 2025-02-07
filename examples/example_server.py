@@ -25,4 +25,4 @@ def hello_world():
 
 
 if __name__ == "__main__":
-    eval(hello_world(), model="openai/gpt-4o", display="web")
+    eval(hello_world(), model="openai/gpt-4o", display="server")
